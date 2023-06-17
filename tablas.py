@@ -27,7 +27,7 @@ def insert_Productos(connection, idProductos,Nombre, ingredientes,Precio ):
 db_connection = DatabaseConnection(
     host="localhost",
     user="root",
-    password="********",
+    password="kali",
     port=3306,
     database="Sandwiches_BigBread"
 )
@@ -36,10 +36,10 @@ db_connection = DatabaseConnection(
 db_connection.connect()
 
 # Insertar ingredientes con IDs específicos
-insert_ingredientes(db_connection, 7, "salame")
+insert_ingredientes(db_connection, 8, "rucula")
 
 # Insertar productos con IDs específicos
-insert_Productos(db_connection, 1, "rodilla", 'jamon y queso','350')
+insert_Productos(db_connection, 2, "queso", 'queso','250')
 
 
 # Cerrar la conexión a la base de datos

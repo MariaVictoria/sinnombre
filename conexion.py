@@ -11,7 +11,7 @@ class DatabaseConnection:
 # Esto asegura que los datos proporcionados al crear una instancia de DatabaseConnection se almacenen correctamente en los atributos de esa instancia.
 
 
-    def __init__(self, host, user, password, port, database): 
+    def __init__(self, host, user, password, port, database,auth_plugin='mysql_native_password'): 
 
 # establecemos los atributos de la clase, datos necesarios para establecer la conexión
         self.host = host
@@ -19,6 +19,7 @@ class DatabaseConnection:
         self.password = password
         self.port = port
         self.database = database
+        self.auth_plugin = auth_plugin
         self.connection = None 
 # Este valor inicial puede ser útil para verificar posteriormente si la conexión ha sido exitosa o no.
 
@@ -30,7 +31,8 @@ class DatabaseConnection:
                 user=self.user,
                 password=self.password,
                 port=self.port, 
-                database=self.database
+                database=self.database,
+                auth_plugin=self.auth_plugin
             )
             print("Conexión exitosa a la base de datos.")
         except mysql.connector.Error as error:
@@ -51,7 +53,7 @@ class DatabaseConnection:
 connection = DatabaseConnection(
     host='localhost',
     user='root', 
-    password='*******',
+    password='kali',
     port=3306,
     database='Sandwiches_BigBread'
 )
